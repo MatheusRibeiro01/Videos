@@ -16,5 +16,7 @@ namespace Filmes.Models
         
         [Required(ErrorMessage = "Este Campo é obrigatório")]
         public string Url { get; set; }
+        
+        public Categoria Categoria { get; set; }
     }
 }

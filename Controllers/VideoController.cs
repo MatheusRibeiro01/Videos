@@ -15,7 +15,7 @@ namespace Filmes.Models
         // GET: api/<ValuesController>
         [HttpGet]
         [Route("")]
-        public async Task<ActionResult<List<Video>>> Get(
+        public async Task<ActionResult<List<Video>>> ListarVideos(
             [FromServices] DataContext context)
         {
             var videos = await context.Videos.AsNoTracking().ToArrayAsync();
@@ -24,7 +24,7 @@ namespace Filmes.Models
 
         // GET api/<ValuesController>/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Video>> GetById( 
+        public async Task<ActionResult<Video>> ListarVideosPeloId( 
             int id,
             [FromServices] DataContext context)
         {
@@ -34,7 +34,7 @@ namespace Filmes.Models
 
         // POST api/<ValuesController>
         [HttpPost]
-        public async Task<ActionResult<Video>> Post(
+        public async Task<ActionResult<Video>> SalvarVideo(
             [FromBody] Video model,
             [FromServices] DataContext context)
         {
@@ -49,14 +49,14 @@ namespace Filmes.Models
             }
             catch (System.Exception)
             {
-                return BadRequest(new {message = "Não foi possível criar o filme"});
+                return BadRequest(new {message = "Não foi possível criar o video"});
             }
         }
 
         // PUT api/<ValuesController>/5
         [HttpPut]
         [Route("{id:int}")]
-        public async Task<ActionResult<Video>> Put(
+        public async Task<ActionResult<Video>> AtualizarVideo(
             int id, 
             [FromBody] Video model,
             [FromServices] DataContext context)
@@ -83,7 +83,7 @@ namespace Filmes.Models
         // DELETE api/<ValuesController>/5
         [HttpDelete]
         [Route("{id:int}")]
-        public async  Task<ActionResult<Video>> Delete(
+        public async  Task<ActionResult<Video>> ApagarFilme(
             int id,
             [FromServices] DataContext context)
         {
