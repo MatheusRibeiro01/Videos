@@ -12,6 +12,7 @@ namespace Filme.Data
             
         }
         public DbSet<Video> Videos { get; set; }
+        public DbSet<Categoria> Categorias { get; set; }
         
         public DataContext(DbContextOptions<DataContext> options) 
             : base(options)
