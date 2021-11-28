@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using Filme.Data.Map;
 using Microsoft.EntityFrameworkCore;
 using Filmes.Models;
 using Microsoft.Extensions.Configuration;
@@ -28,6 +29,12 @@ namespace Filme.Data
             var connectionString = configuration.GetConnectionString("FilmesDb");
             optionsBuilder.UseSqlServer(connectionString);
         }
-        
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.ApplyConfiguration(new VideoMap());
+            modelBuilder.ApplyConfiguration(new CategoriaMap());
+        }
     }
 }

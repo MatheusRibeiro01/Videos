@@ -9,26 +9,7 @@ namespace Filme.Data.Map
     {
         public void Configure(EntityTypeBuilder<Video> builder)
         {
-            builder.HasKey(x => x.Id);
-            builder.Property(x => x.Id)
-                .HasColumnName("Id")
-                .IsRequired();
-            
-            builder.Property(x => x.Titulo)
-                .HasColumnName("Titulo")
-                .IsRequired();
-            
-            builder.Property(x => x.Descricao)
-                .HasColumnName("Descricao")
-                .IsRequired();
-            
-            builder.Property(x => x.Url)
-                .HasColumnName("Url")
-                .IsRequired();
-            
-            
-            
-
+            builder.HasKey(p => p.Id);
         }
     }
 }
